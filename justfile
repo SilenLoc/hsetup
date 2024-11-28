@@ -26,13 +26,13 @@ t:
     podman run -d \
             --name hello \
             --hostname hello.silenlocatelli.ch \
-            -p 8000:8000 \
+            -p 192.168.1.100:8000:8000 \
             -l traefik.enable="true" \
-            -l traefik.http.routers.hello.rule=Host'(`hello.silenlocatelli.ch`)' \
+            -l "traefik.http.routers.hello.rule=Host(`hello.silenlocatelli.ch`)" \
             -l traefik.http.middlewares.hello-https-redirect.redirectscheme.scheme="https" \
             -l traefik.http.routers.hello.middlewares="hello-https-redirect" \
             -l traefik.http.routers.hello-secure.entrypoints="websecure" \
-            -l traefik.http.routers.hello-secure.rule=Host'(`hello.silenlocatelli.ch`)' \
+            -l "traefik.http.routers.hello-secure.rule=Host(`hello.silenlocatelli.ch`)" \
             -l traefik.http.routers.hello-secure.tls="true" \
             -l traefik.http.routers.hello-secure.tls.certresolver=lets-encrypt \
             docker.io/crccheck/hello-world
