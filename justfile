@@ -32,5 +32,5 @@ t:
             -l traefik.http.routers.hello-secure.rule=Host'(`hello.silenlocatelli.ch`)' \
             -l traefik.http.routers.hello-secure.tls="true" \
             -l traefik.http.routers.hello-secure.tls.certresolver=lets-encrypt \
-            -l traefik.http.services.hello.loadbalancer.server.port="8111" \
+            -l traefik.http.services.hello.loadbalancer.server.port="8000" \
             docker.io/crccheck/hello-world
