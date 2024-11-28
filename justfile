@@ -4,7 +4,7 @@ p user_id email_address:
       --net podman \
       --security-opt label=type:container_runtime_t \
       -v /run/user/{{user_id}}/podman/podman.sock:/var/run/docker.sock:z \
-      -v /acme.json:/acme.json:z \
+      -v acme.json:/acme.json:z \
       -p 80:80 \
       -p 443:443 \
       -p 8080:8080 \
