@@ -24,18 +24,18 @@ p user_id email_address:
 t:
     podman rm -f test
     podman run -d \
-            --name test \
-            --hostname hello.silenlocatelli.ch \
-            -p 127.0.0.1:8000:8000 \
-            -l traefik.enable="true" \
-            -l traefik.http.routers.test.rule=Host'(`hello.silenlocatelli.ch`)' \
-            -l traefik.http.middlewares.test-https-redirect.redirectscheme.scheme="https" \
-            -l traefik.http.routers.test.middlewares="hello-https-redirect" \
-            -l traefik.http.routers.test-secure.entrypoints="websecure" \
-            -l traefik.http.routers.test-secure.rule=Host'(`hello.silenlocatelli.ch`)' \
-            -l traefik.http.routers.test-secure.tls="true" \
-            -l traefik.http.routers.test-secure.tls.certresolver=lets-encrypt \
-            docker.io/crccheck/hello-world
+        --name hello \
+        --hostname hello.silenlocatelli.ch \
+        -l traefik.enable="true" \
+        -l traefik.http.routers.hello.rule=Host'(`hello.silenlocatelli.ch`)' \
+        -l traefik.http.middlewares.hello-https-redirect.redirectscheme.scheme="https" \
+        -l traefik.http.routers.hello.middlewares="hello-https-redirect" \
+        -l traefik.http.routers.hello-secure.entrypoints="websecure" \
+        -l traefik.http.routers.hello-secure.rule=Host'(`hello.silenlocatelli.ch`)' \
+        -l traefik.http.routers.hello-secure.tls="true" \
+        -l traefik.http.routers.hello-secure.tls.certresolver=lets-encrypt \
+        -l traefik.http.services.hello.loadbalancer.server.port="8000" \
+        docker.io/crccheck/hello-world
 
 g:
     git add .
