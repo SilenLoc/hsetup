@@ -19,3 +19,18 @@ p user_id email_address:
       --entrypoints.http.http.redirections.entryPoint.scheme=https \
       --entrypoints.https.address=":443" \
       --providers.docker=true
+
+t:
+    podman run -d \
+            --name hello \
+            --hostname hello.silenlocatelli.ch \
+            -l traefik.enable="true" \
+            -l traefik.http.routers.hello.rule=Host'(`hello.silenlocatelli.ch`)' \
+            -l traefik.http.middlewares.hello-https-redirect.redirectscheme.scheme="https" \
+            -l traefik.http.routers.hello.middlewares="hello-https-redirect" \
+            -l traefik.http.routers.hello-secure.entrypoints="websecure" \
+            -l traefik.http.routers.hello-secure.rule=Host'(`hello.silenlocatelli.ch`)' \
+            -l traefik.http.routers.hello-secure.tls="true" \
+            -l traefik.http.routers.hello-secure.tls.certresolver=lets-encrypt \
+            -l traefik.http.services.hello.loadbalancer.server.port="8111" \
+            docker.io/crccheck/hello-world
