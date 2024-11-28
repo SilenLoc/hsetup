@@ -18,7 +18,8 @@ p user_id email_address:
       --entrypoints.http.http.redirections.entryPoint.to=https \
       --entrypoints.http.http.redirections.entryPoint.scheme=https \
       --entrypoints.https.address=":443" \
-      --providers.docker=true
+      --providers.docker=true \
+      --providers.docker.allowEmptyServices=true
 
 t:
     podman run -d \
