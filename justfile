@@ -1,7 +1,9 @@
 
-up:
-    docker compose down
+up: down
     docker compose up -d
+
+down:
+    docker compose down    
 
 g:
     git add .
