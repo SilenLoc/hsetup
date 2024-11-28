@@ -26,7 +26,7 @@ t:
     podman run -d \
             --name hello \
             --hostname hello.silenlocatelli.ch \
-            -p 192.168.1.100:8000:8000 \
+            -p 127.0.0.1:8000:8000 \
             -l traefik.enable="true" \
             -l traefik.http.routers.hello.rule=Host'(`hello.silenlocatelli.ch`)' \
             -l traefik.http.middlewares.hello-https-redirect.redirectscheme.scheme="https" \
