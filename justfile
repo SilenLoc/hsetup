@@ -22,6 +22,7 @@ p user_id email_address:
       --providers.docker.allowEmptyServices=true
 
 t:
+    podman delete -f hello
     podman run -d \
             --name hello \
             --hostname hello.silenlocatelli.ch \
