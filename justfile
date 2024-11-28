@@ -25,6 +25,7 @@ t:
     podman run -d \
             --name hello \
             --hostname hello.silenlocatelli.ch \
+            -p 8000:8000 \
             -l traefik.enable="true" \
             -l traefik.http.routers.hello.rule=Host'(`hello.silenlocatelli.ch`)' \
             -l traefik.http.middlewares.hello-https-redirect.redirectscheme.scheme="https" \
@@ -33,5 +34,9 @@ t:
             -l traefik.http.routers.hello-secure.rule=Host'(`hello.silenlocatelli.ch`)' \
             -l traefik.http.routers.hello-secure.tls="true" \
             -l traefik.http.routers.hello-secure.tls.certresolver=lets-encrypt \
-            -l traefik.http.services.hello.loadbalancer.server.port="8000" \
             docker.io/crccheck/hello-world
+
+g:
+    git add .
+    git commit -m "Update"
+    git push
