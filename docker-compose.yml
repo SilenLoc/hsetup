@@ -27,7 +27,7 @@ services:
 
   me:
     image: "ghcr.io/lunchtimecode/me:latest"
-    container_name: "me-service"
+    container_name: "me"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.me.rule=Host(`hello.silenlocatelli.ch`)"
