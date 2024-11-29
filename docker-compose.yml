@@ -27,9 +27,9 @@ services:
 
   me:
     image: "ghcr.io/lunchtimecode/me:latest"
-    container_name: "simple-service"
+    container_name: "me-service"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`hello.silenlocatelli.ch`)"
-      - "traefik.http.routers.whoami.entrypoints=websecure"
-      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+      - "traefik.http.routers.me.rule=Host(`hello.silenlocatelli.ch`)"
+      - "traefik.http.routers.me.entrypoints=websecure"
+      - "traefik.http.routers.me.tls.certresolver=myresolver"
