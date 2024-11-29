@@ -25,7 +25,7 @@ services:
       - "./letsencrypt:/letsencrypt"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
-  whoami:
+  me:
     image: "ghcr.io/lunchtimecode/me:latest"
     container_name: "simple-service"
     labels:
