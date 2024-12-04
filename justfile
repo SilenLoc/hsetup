@@ -14,3 +14,12 @@ g:
 
 pu:
     git pull
+
+    
+restart_update:
+    git pull
+    just up
+    
+start_watch:
+    watch --interval=3600 just restart_update
+    
