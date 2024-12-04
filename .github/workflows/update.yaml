@@ -1,0 +1,32 @@
+name: update
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: "0 6,11 * * 1-5"
+
+jobs:
+  update-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: just@1
+      - run: just update
+        env:
+          GH_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
+      - name: Commit
+        run: |
+          git config user.name SilenLoc
+          git config user.email silen.locatelli@gmx.ch
+          git add -A
+          git commit -m "update" || true
+      - name: Push
+        run: git push

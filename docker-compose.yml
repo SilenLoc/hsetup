@@ -24,7 +24,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   me:
-    image: "ghcr.io/lunchtimecode/me:0.2.0"
+    image: "ghcr.io/lunchtimecode/me:${me_VERSION}"
     container_name: "me"
     ports:
       - "8000:8000"

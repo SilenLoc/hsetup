@@ -1,6 +1,8 @@
+import 'deploy.just'
+
 
 up: down
-    docker compose up -d
+    docker compose --env-file versions.env up -d 
 
 down:
     docker compose down    
