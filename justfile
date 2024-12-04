@@ -1,8 +1,8 @@
 import 'deploy.just'
 
 
-up: down
-    docker compose --env-file versions.env up -d 
+up:
+    docker compose --env-file versions.env up -d --always-recreate-deps
 
 down:
     docker compose down    
