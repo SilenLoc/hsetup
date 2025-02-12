@@ -1,5 +1,4 @@
 services:
-
   traefik:
     image: "traefik:v3.2"
     container_name: "traefik"
@@ -33,14 +32,3 @@ services:
       - "traefik.http.routers.me.rule=Host(`me.silenlocatelli.ch`)"
       - "traefik.http.routers.me.entrypoints=websecure"
       - "traefik.http.routers.me.tls.certresolver=myresolver"
-    
-  akita:
-    container_name: akita
-    image: akitasoftware/cli:latest
-    depends_on:
-        - me
-    environment:
-      - AKITA_API_KEY_ID=${AKITA_API_KEY_ID}
-      - AKITA_API_KEY_SECRET=${KITA_API_KEY_SECRET}
-    network_mode: "service:me"
-    entrypoint: /akita apidump --service me   
