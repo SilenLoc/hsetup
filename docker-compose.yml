@@ -1,5 +1,8 @@
 services:
   traefik:
+    dns:
+          - 8.8.8.8
+          - 1.1.1.1
     image: "traefik:v3.3"
     container_name: "traefik"
     command:
