@@ -8,4 +8,5 @@
 ### Planned 
 
 - Grafana monitoring of Traefik
+- Add grafana alloy to docker compose
 - Grafana health check of the deployed services
