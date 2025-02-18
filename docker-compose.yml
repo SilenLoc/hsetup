@@ -43,6 +43,6 @@ services:
       - "8001:8000"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.me.rule=Host(`jobs.silenlocatelli.ch`)"
-      - "traefik.http.routers.me.entrypoints=websecure"
-      - "traefik.http.routers.me.tls.certresolver=myresolver"
+      - "traefik.http.routers.jobs.rule=Host(`jobs.silenlocatelli.ch`)"
+      - "traefik.http.routers.jobs.entrypoints=websecure"
+      - "traefik.http.routers.jobs.tls.certresolver=myresolver"
