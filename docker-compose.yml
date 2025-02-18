@@ -35,7 +35,7 @@ services:
       - "traefik.http.routers.me.rule=Host(`me.silenlocatelli.ch`)"
       - "traefik.http.routers.me.entrypoints=websecure"
       - "traefik.http.routers.me.tls.certresolver=myresolver"
-      - "traefik.http.routers.jobs.loadbalancer.server.port=8000"
+      - "traefik.http.routers.me.loadbalancer.server.port=8000"
       
   jobs:
     image: "ghcr.io/lunchtimecode/jobs:${jobs_VERSION}"
