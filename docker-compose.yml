@@ -40,7 +40,7 @@ services:
     image: "ghcr.io/lunchtimecode/jobs:${jobs_VERSION}"
     container_name: "jobs"
     ports:
-      - "8001:12500"
+      - "12500:12500"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.jobs.rule=Host(`jobs.silenlocatelli.ch`)"
