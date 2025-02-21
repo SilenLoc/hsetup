@@ -13,3 +13,4 @@ replace-version repo version:
        
 @update:
     just update-version docker-compose.yml me
+    just update-version docker-compose.yml jobs
