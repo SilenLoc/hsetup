@@ -21,5 +21,5 @@ restart_update:
     just up
     
 start_watch:
-    watch --interval=3600 just restart_update
-    
+    */10 * * * * watch.sh
+
