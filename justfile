@@ -21,5 +21,5 @@ restart_update:
     just up
     
 start_watch:
-    crontab */10 * * * * ./watch.sh
+    echo "*/10 * * * * $(pwd)/watch.sh" | crontab -
 
